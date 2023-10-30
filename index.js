@@ -39,7 +39,7 @@ function expression(eval = false) {
                 break
                 
             default:
-                ans = '0'
+                ans = a
                 break
         }
 
@@ -69,7 +69,7 @@ function calculate (input, e) {
             b = null
             operator = null
         } else if (input === '.') {
-            appendNumber(input)
+            appendNumber('0.')
         } else if (e) {
             let attr = e.attributes.getNamedItem('data-btn')?.value                
             if (attr === 'backspace') {

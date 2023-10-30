@@ -15,7 +15,6 @@ html, body {
     font-size: 60px;
     display: flex;
     justify-content: flex-end;
-    align-items: flex-end;
 }
 
 .display-text {
