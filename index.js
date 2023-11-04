@@ -11,7 +11,8 @@ let buttons = document.querySelectorAll('.input-col')
 for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', function() {
         let input = buttons[i].innerHTML
-
+        let tracy = buttons[i].attributes.getNamedItem('data-tracy')
+        console.log(tracy)
         if (special.includes(input)) {
             if (input === 'C') {
                 a = ''
@@ -53,6 +54,26 @@ for (let i = 0; i < buttons.length; i++) {
             } else {
                 operator = input
                 exp = a + operator + b
+            }
+        } else if (tracy !== null) {
+            tracy = tracy.value
+
+            if (tracy === 'backspace') {
+                if (b !== '') {
+                    b = b.slice(0, -1)
+                    exp = a + operator + b
+                } else if (operator !== '') {
+                    operator = operator.slice(0, -1)
+                    exp = a + operator + b
+                } else if (a !== '') {
+                    a = a.slice(0, -1)
+
+                    if (a === '') {
+                        exp = '0'
+                    } else {
+                        exp = a + operator + b
+                    }
+                }
             }
         } else {
             if (operator === '') {
